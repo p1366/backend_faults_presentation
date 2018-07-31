@@ -126,7 +126,7 @@ end
 
 - Debug your queries and migrations
 - Inspect `schema.rb` and DB
-- Know your GEMs (`paranoa` etc)
+- Know your GEMs (`paranoia` etc)
 
 ---
 
