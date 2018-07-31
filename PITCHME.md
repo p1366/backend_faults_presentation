@@ -6,7 +6,7 @@
 
 ---
 
-### Modifying data with @color[#DC143C](GET) request
+#### Modifying data with @color[#DC143C](GET) request
 
 ```ruby
 Rails.application.routes.draw do
@@ -18,7 +18,7 @@ end
 
 ---
 
-### Using @color[#DC143C](NON-STANDARD) actions
+#### Using @color[#DC143C](NON-STANDARD) actions
 
 ```ruby
 Rails.application.routes.draw do
@@ -40,7 +40,7 @@ end
 
 ---
 
-### FOREIGN KEY constraints
+#### FOREIGN KEY constraints
 (absence)
 
 ```ruby
@@ -51,5 +51,33 @@ ActiveRecord::Schema.define(version: 2018_07_19_182936) do
     t.bigint "publisher_id"
   # ...
   add_foreign_key "books", "publishers"
+end
+```
+
+---
+
+#### FOREIGN KEY constraints
+(absence)
+
+```ruby
+class CreateBooks < ActiveRecord::Migration[5.1]
+  def change
+    create_table :books do |t|
+      t.belongs_to :publisher, foreign_key: true
+```
+
+---
+
+#### Index / UNIQUE Index
+(absence)
+
+```ruby
+ActiveRecord::Schema.define(version: 2018_07_19_182936) do
+  create_table "shop_books", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "shop_id"
+    t.index ["book_id"], name: "my_index_1"
+    t.index ["shop_id", "book_id"], name: "my_index_2", unique: true
+  # ...
 end
 ```
