@@ -84,6 +84,35 @@ end
 
 ---
 
+#### NOT NULL constraints
+(absence)
+
+```ruby
+ActiveRecord::Schema.define(version: 2018_07_19_182936) do
+  create_table "my_table", force: :cascade do |t|
+    t.bigint  "user_id"
+    t.integer "position"
+    t.boolean "is_admin", default: false
+    t.boolean "is_vasya", default: false, null: false
+  # ...
+end
+```
+
+---
+
+#### Type missing
+
+```ruby
+ActiveRecord::Schema.define(version: 2018_07_19_182936) do
+  create_table "shop_books", force: :cascade do |t|
+    t.bigint "book_id"
+    t.integer "shop_id"
+  # ...
+end
+```
+
+---
+
 ```bash
 psql (9.6.2)
 Type "help" for help.
@@ -96,7 +125,7 @@ my_db=# \d votes
  member_id    | integer | not null
  candidate_id | integer | not null
  value        | integer | not null default 0
- ndexes:
+Indexes:
     "votes_pkey" PRIMARY KEY, btree (id)
     "index_votes_on_member_id_and_candidate_id" UNIQUE, btree (member_id, candidate_id)
     "index_votes_on_candidate_id" btree (candidate_id)
