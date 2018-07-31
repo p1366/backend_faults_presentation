@@ -3,6 +3,7 @@
 ---
 
 ## Routing
+(RESTful, motherf** , do you know it?)
 
 ---
 
@@ -110,6 +111,22 @@ ActiveRecord::Schema.define(version: 2018_07_19_182936) do
   # ...
 end
 ```
+
+---
+
+#### Queries
+- N + 1
+- Heavy
+- Count
+- `Count` vs `SELECT 1 FROM ... WHERE ... LIMIT 1`
+
+---
+
+## What to do?
+
+- Debug your queries and migrations
+- Inspect `schema.rb` and DB
+- Know your GEMs (`paranoa` etc)
 
 ---
 
